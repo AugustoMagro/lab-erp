@@ -34,3 +34,16 @@
 .lab-erp-pallet-bg-green {
     background-color: #2AAA65;
 }
+
+li {
+    list-style: none;
+}
+
+#sidebar-nav {
+    text-align: left;
+}
+
+.hover-sidebar-button:hover {
+    background-color: #212529;
+    color: #FFFFFF;
+}
