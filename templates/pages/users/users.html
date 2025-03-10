@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-5 p-5 container lab-erp-pallet-bg-10 rounded">
+    <div class="row">
+        <div class="mb-5 row align-items-end">
+            <div class="col-md-4">
+                <div class="">
+                    <input type="search" class="form-control" placeholder="Search">
+                </div>
+            </div>
+            <div class="col-md-5"></div>
+            <div class="col-md-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn-lab me-md-2 w-100" type="button" href="{{ url_for('newUser') }}">New</a>
+                    <button class="btn-lab me-md-2 w-100" type="button">Edit</button>
+                    <button class="btn-lab btn-lab-red w-100" type="button">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-top">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Astolpho</td>
+                            <td>Dreams</td>
+                            <td>@magic</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Astolpho</td>
+                            <td>Dreams</td>
+                            <td>@magic</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Astolpho</td>
+                            <td>Dreams</td>
+                            <td>@magic</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Astolpho</td>
+                            <td>Dreams</td>
+                            <td>@magic</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Astolpho</td>
+                            <td>Dreams</td>
+                            <td>@magic</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

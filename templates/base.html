@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/2daf53615d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -11,11 +12,11 @@
 
     <div class="container-fluid" style="height: 100vw;">
         <div class="row h-100">
-            <div class="col-2 h-100 text-center lab-erp-pallet-bg-10">
+            <div class="col-2 text-center lab-erp-pallet-bg-10">
                 {% include 'components/sidebar.html' %}
             </div>
-            <div class="col-10 h-100 text-center lab-erp-pallet-bg-8">
-                {% block content %} 
+            <div class="col-10 text-center lab-erp-pallet-bg-9 rounded">
+                {% block content %}
                 {% endblock %}
             </div>
         </div>

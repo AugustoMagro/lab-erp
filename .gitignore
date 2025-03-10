@@ -172,3 +172,5 @@ cython_debug/
 
 #Static
 /static/bootstrap
+/static/icon
+/static/img
