@@ -1,6 +1,8 @@
+from app import app
 from flask import Flask, render_template, request, redirect, url_for
+from helpers import NewUserForm
 
-app = Flask(__name__)
+listaUsers = []
 
 @app.route('/')
 def home():
@@ -21,7 +23,7 @@ def sales():
 
 @app.route('/users')
 def users():
-    return render_template('pages/users/users.html')
+    return render_template('pages/users/users.html', users=listaUsers)
 
 @app.route('/suppliers')
 def suppliers():
@@ -33,6 +35,10 @@ def costumers():
 
 @app.route('/newuser')
 def newUser():
-    return render_template('pages/users/newUser.html')
+    form = NewUserForm()
+    return render_template('pages/users/newUser.html', form=form)
 
-app.run()
+@app.route('/createuser', methods=["POST",])
+def createUser():
+    form = NewUserForm(request.form)
+    return redirect(url_for("users"))

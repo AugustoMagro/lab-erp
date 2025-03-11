@@ -174,3 +174,4 @@ cython_debug/
 /static/bootstrap
 /static/icon
 /static/img
+/migrations
