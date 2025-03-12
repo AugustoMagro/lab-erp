@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ERP</title>
     <script src="https://kit.fontawesome.com/2daf53615d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -16,6 +16,24 @@
                 {% include 'components/sidebar.html' %}
             </div>
             <div class="col-10 text-center lab-erp-pallet-bg-9 rounded">
+                
+
+                <div class="container">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                            <ul class=flashes>
+                            {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{ message }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+
                 {% block content %}
                 {% endblock %}
             </div>

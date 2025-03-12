@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP</title>
+    <script src="https://kit.fontawesome.com/2daf53615d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="lab-erp-pallet-bg-10">
+
+    <div class="container">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                            <ul class=flashes>
+                            {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{ message }}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+    <div class="container-fluid" style="height: 50vw;">
+        <div class="row h-100">
+            <div class="border d-flex align-items-center justify-content-center">
+                <div class="container h-50 w-25 lab-erp-pallet-bg-1 rounded">
+                    <div class="row">
+                        <div class="mt-5 col-12 text-center">
+                            <h1 class="login-text">Login</h3>
+                            <div class="container">
+                                <form action="{{ url_for('autenticate') }}" method="post">
+                                    <fieldset>
+                                        {{ form.csrf_token() }}
+                                        <div class="mb-5 row">
+                                            <div class="col-12 align-items-center">
+                                                {{ form.nextPage(class="form-control", type="hidden", value=nextPage) }}
+                                                {{ form.email.label(class="form-label newuser-formlab-label") }}
+                                                {{ form.email(class="form-control", placeholder="Email") }}
+                                            </div>
+                                        <div class="mb-5 row align-items-end"></div>
+                                            <div class="col-12">
+                                                {{ form.password.label(class="form-label newuser-formlab-label") }}
+                                                {{ form.password(class="form-control", placeholder="Password") }}
+                                            </div>
+                                        </div>
+                                        <div class="mb-5 row align-items-end">
+                                            <div class="col-12">
+                                                {{ form.save(class="btn-lab-dark me-md-2", type="submit") }}
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js.js') }}"></script>
+</body>
+</html>

@@ -52,6 +52,11 @@ li {
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
 }
 
+.sidebar-button-red {
+    background-color: #DC4A34;
+    color: #FFFFFF;
+}
+
 .sidebar-button:hover {
     background-color: #212529;
     color: #FFFFFF;
@@ -118,4 +123,8 @@ li {
 
 .newuser-formlab-label {
     color:#FFFFFF;
+}
+
+.login-text {
+    color: #FFFFFF;
 }

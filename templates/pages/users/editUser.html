@@ -4,31 +4,31 @@
 
 <div class="mt-5 p-5 container lab-erp-pallet-bg-1 rounded">
     <div class="row">
-        <form action="{{ url_for('createUser') }}" method="post">
+        <form action="{{ url_for('updateUser') }}" method="post">
             <fieldset>
                 {{ form.csrf_token() }}
                 <div class="mb-5 row align-items-end">
+                    <div class="col-2">
+                        {{ form.id.label(class="form-label newuser-formlab-label") }}
+                        {{ form.id(class="form-control", placeholder="Id", value=user.id) }}
+                    </div>
                     <div class="col-4">
                         {{ form.name.label(class="form-label newuser-formlab-label") }}
-                        {{ form.name(class="form-control", placeholder="Name") }}
+                        {{ form.name(class="form-control", placeholder="Name", value=user.name) }}
                     </div>
-                    <div class="col-8">
+                    <div class="col-6">
                         {{ form.lastName.label(class="form-label newuser-formlab-label") }}
-                        {{ form.lastName(class="form-control", placeholder="Last name") }}
+                        {{ form.lastName(class="form-control", placeholder="Last name", value=user.lastName) }}
                     </div>
                 </div>
                 <div class="mb-5 row align-items-end">
                     <div class="col-4">
                         {{ form.email.label(class="form-label newuser-formlab-label") }}
-                        {{ form.email(class="form-control", placeholder="Email") }}
+                        {{ form.email(class="form-control", placeholder="Email", value=user.email) }}
                     </div>
                     <div class="col-3">
                         {{ form.position.label(class="form-label newuser-formlab-label") }}
-                        {{ form.position(class="form-control", placeholder="Email") }}
-                    </div>
-                    <div class="col-5">
-                        {{ form.password.label(class="form-label newuser-formlab-label") }}
-                        {{ form.password(class="form-control", placeholder="Password") }}
+                        {{ form.position(class="form-control", placeholder="Position") }}
                     </div>
                 </div>
                 <div class="mb-5 row align-items-end">

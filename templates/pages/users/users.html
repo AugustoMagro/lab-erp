@@ -9,12 +9,10 @@
                     <input type="search" class="form-control" placeholder="Search">
                 </div>
             </div>
-            <div class="col-md-5"></div>
-            <div class="col-md-3">
+            <div class="col-md-6"></div>
+            <div class="col-md-2">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn-lab me-md-2 w-100" type="button" href="{{ url_for('newUser') }}">New</a>
-                    <button class="btn-lab me-md-2 w-100" type="button">Edit</button>
-                    <button class="btn-lab btn-lab-red w-100" type="button">Delete</button>
                 </div>
             </div>
         </div>
@@ -38,10 +36,14 @@
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
                             <td>{{ user.position }}</td>
+                            <td>
+                                <a href="{{ url_for('editUser', id=user.id) }}">Edit</a>
+                                <a href="{{ url_for('deleteUser', id=user.id) }}">Delete</a>
+                            </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-                    </table>
+                </table>
             </div>
         </div>
     </div>
