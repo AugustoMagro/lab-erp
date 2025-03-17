@@ -12,9 +12,11 @@ class DownloadStatic:
 
         BASE_DIR = Path(__file__).resolve().parent
         
-        out_path_css = BASE_DIR / "static\\staticBootstrap.css"
-        out_path_js1 = BASE_DIR / "static\\staticBootstrap1.js"
-        out_path_js2 = BASE_DIR / "static\\staticBootstrap2.js"
+        BASE_DIR_STATICFILES = BASE_DIR / "static"
+
+        out_path_css = BASE_DIR_STATICFILES / "staticBootstrap.css"
+        out_path_js1 = BASE_DIR_STATICFILES / "staticBootstrap1.js"
+        out_path_js2 = BASE_DIR_STATICFILES / "staticBootstrap2.js"
 
         url1 = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         url2 = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
