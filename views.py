@@ -2,6 +2,7 @@ from main import app, db
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from helpers import NewUserForm, EditUserForm, LoginUserForm
 from model import *
+from flask_bcrypt import generate_password_hash, check_password_hash
 
 @app.route('/login')
 def login():
@@ -14,7 +15,8 @@ def login():
 def autenticate():
     form = LoginUserForm(request.form)
     user = User.query.filter_by(email=form.email.data).first()
-    if user.password == form.password.data:
+    password = check_password_hash(user.password, form.password.data)
+    if password:
         session['userLoged'] = user.id
         flash(f"Login {user.name} success")
         return redirect(form.nextPage.data)
@@ -130,7 +132,7 @@ def createUser():
         return redirect(url_for("login", next=url_for('createUser')))
 
     form = NewUserForm(request.form)
-    newUser = User(name=form.name.data, lastName=form.lastName.data, email=form.email.data, position=form.position.data, password=form.password.data)
+    newUser = User(name=form.name.data, lastName=form.lastName.data, email=form.email.data, position=form.position.data, password=generate_password_hash(form.password.data).decode("utf-8"))
 
     db.session.add(newUser)
     db.session.commit()
