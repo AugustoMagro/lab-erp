@@ -26,7 +26,7 @@ def autenticate():
 def logout():
     session['userLoged'] = None
     flash(f"Logout with success!")
-    return redirect(url_for("login"))
+    return redirect(url_for("login", next=url_for('home')))
 
 @app.route('/')
 def home():
