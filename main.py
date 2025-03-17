@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
 from flask_s3 import FlaskS3
+from flask_bcrypt import Bcrypt
 import os
 
 load_dotenv()
@@ -24,13 +25,12 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 csrf = CSRFProtect(app)
+bcrypt = Bcrypt(app)
 
 
 from views import *
 from model import *
 
 # Commit your model (table) to the database
-
-
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
