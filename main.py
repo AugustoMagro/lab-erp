@@ -4,7 +4,6 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from dotenv import load_dotenv
 from flask_s3 import FlaskS3
-from helpers import DownloadStatic
 import os
 
 load_dotenv()
@@ -34,7 +33,4 @@ from model import *
 
 
 if __name__ == '__main__':
-
-    DownloadStatic()
-
-    app.run(debug=True)
+    app.run()
