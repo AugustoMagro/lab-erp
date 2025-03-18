@@ -5,43 +5,58 @@
         <ul class="p-0 sidebar-nav w-100" id="sidebar-nav">
             <li class="mt-4 sidebar-item d-grid mx-auto">
                 <a class="sidebar-link sidebar-button" href="{{ url_for('home') }}">
-                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/home.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/home_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/home_light.png') }}" width="20" height="20"></img>
                     <span class="ms-2">Home</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('dashboard') }}">
-                    <span>Dashboard</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/dashboard_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/dashboard_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Dashboard</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('products') }}">
-                    <span>Products</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/products_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/products_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Products</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('sales') }}">
-                    <span>Sales</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/sales_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/sales_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Sales</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('users') }}">
-                    <span>Users</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/users_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/users_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Users</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('suppliers') }}">
-                    <span>Supliers</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/suppliers_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/suppliers_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Supliers</span>
                 </a>
             </li>
             <li class="mt-4 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button" href="{{ url_for('costumers') }}">
-                    <span>Costumers</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/customers_dark.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/customers_light.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Customers</span>
                 </a>
             </li>
             <li class="mt-5 sidebar-item d-grid mx-auto" >
                 <a class="sidebar-link sidebar-button sidebar-button-red" href="{{ url_for('logout') }}">
-                    <span>Logout</span>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/logout1.png') }}" width="20" height="20"></img>
+                    <img class="icon-sidebar" src="{{ url_for('static', filename='icon/logout2.png') }}" width="20" height="20"></img>
+                    <span class="ms-2">Logout</span>
                 </a>
             </li>
         </ul>

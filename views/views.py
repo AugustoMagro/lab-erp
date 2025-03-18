@@ -1,0 +1,52 @@
+from main import app, db
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from model import *
+from flask_bcrypt import generate_password_hash, check_password_hash
+
+@app.route('/')
+def home():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('home')))
+    
+    return render_template('pages/home/home.html')
+
+@app.route('/dashboard')
+def dashboard():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('dashboard')))
+    
+    return render_template('pages/dashboard/dashboard.html')
+
+@app.route('/products')
+def products():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('products')))
+
+    return render_template('pages/products/products.html')
+
+@app.route('/sales')
+def sales():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('sales')))
+
+    return render_template('pages/sales/sales.html')
+
+@app.route('/suppliers')
+def suppliers():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('suppliers')))
+
+    return render_template('pages/suppliers/suppliers.html')
+
+@app.route('/costumers')
+def costumers():
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('costumers')))
+
+    return render_template('pages/costumers/costumers.html')

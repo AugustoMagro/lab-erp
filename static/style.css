@@ -51,6 +51,20 @@ li {
     border-radius: 10px;
     padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
 }
+  
+.sidebar-button img:nth-child(2) {
+    display: none; 
+}
+
+.sidebar-button:hover img:nth-child(1) {
+    display: none;
+    transition: 250ms;
+}
+
+.sidebar-button:hover img:nth-child(2) {
+    display: inline;
+    transition: 250ms;
+}
 
 .sidebar-button-red {
     background-color: #DC4A34;

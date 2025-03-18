@@ -4,6 +4,8 @@ from helpers import NewUserForm, EditUserForm, LoginUserForm
 from model import *
 from flask_bcrypt import generate_password_hash, check_password_hash
 
+USERS_DEFAULT = ["admin@stannum.com"]
+
 @app.route('/login')
 def login():
     form = LoginUserForm()
@@ -30,38 +32,6 @@ def logout():
     flash(f"Logout with success!")
     return redirect(url_for("login", next=url_for('home')))
 
-@app.route('/')
-def home():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('home')))
-    
-    return render_template('pages/home/home.html')
-
-@app.route('/dashboard')
-def dashboard():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('dashboard')))
-    
-    return render_template('pages/dashboard/dashboard.html')
-
-@app.route('/products')
-def products():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('products')))
-
-    return render_template('pages/products/products.html')
-
-@app.route('/sales')
-def sales():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('sales')))
-
-    return render_template('pages/sales/sales.html')
-
 @app.route('/users')
 def users():
     if 'userLoged' not in session or session['userLoged'] == None:
@@ -70,22 +40,6 @@ def users():
 
     listUsers = User.query.order_by(User.id)
     return render_template('pages/users/users.html', users=listUsers)
-
-@app.route('/suppliers')
-def suppliers():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('suppliers')))
-
-    return render_template('pages/suppliers/suppliers.html')
-
-@app.route('/costumers')
-def costumers():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('costumers')))
-
-    return render_template('pages/costumers/costumers.html')
 
 @app.route('/newuser')
 def newUser():
@@ -145,7 +99,12 @@ def deleteUser(id):
         flash(f"User not loged!")
         return redirect(url_for("login", next=url_for('deleteUser')))
 
-    User.query.filter_by(id=id).delete()
+    user = User.query.filter_by(id=id).first()
+    if user.email in USERS_DEFAULT:
+        flash(f"You can´t delete Admin")
+    else:
+        user.delete()
+
     db.session.commit()
 
     return redirect(url_for("users"))
