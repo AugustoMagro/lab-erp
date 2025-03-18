@@ -28,7 +28,8 @@ csrf = CSRFProtect(app)
 bcrypt = Bcrypt(app)
 
 
-from views import *
+from views.views import *
+from views.viewsUsers import *
 from model import *
 
 # Commit your model (table) to the database

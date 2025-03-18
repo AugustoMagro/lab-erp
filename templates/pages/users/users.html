@@ -6,7 +6,7 @@
         <div class="mb-5 row align-items-end">
             <div class="col-md-4">
                 <div class="">
-                    <input type="search" class="form-control" placeholder="Search">
+                    <input id="search-users" type="search" class="form-control" placeholder="Search" onkeyup="searchUsers()">
                 </div>
             </div>
             <div class="col-md-6"></div>
@@ -28,7 +28,7 @@
                         <th scope="col">Position</th>
                         </tr>
                     </thead>
-                    <tbody class="table-group-divider">
+                    <tbody id="table-users" class="table-group-divider">
                         {% for user in users %}
                         <tr>
                             <th scope="row">{{ user.id }}</th>
