@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5 p-5 container lab-erp-pallet-bg-1 rounded">
+    <div class="row">
+        <form action="{{ url_for('updateCustomer') }}" method="post">
+            <fieldset>
+                {{ form.csrf_token() }}
+                <div class="mb-5 row align-items-end">
+                    <div class="col-2">
+                        {{ form.id.label(class="form-label newuser-formlab-label") }}
+                        {{ form.id(class="form-control", placeholder="Id", value=customer.id) }}
+                    </div>
+                    <div class="col-4">
+                        {{ form.name.label(class="form-label newuser-formlab-label") }}
+                        {{ form.name(class="form-control", placeholder="Name", value=customer.name) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form.lastName.label(class="form-label newuser-formlab-label") }}
+                        {{ form.lastName(class="form-control", placeholder="Last name", value=customer.lastName) }}
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-end">
+                    <div class="col-4">
+                        {{ form.email.label(class="form-label newuser-formlab-label") }}
+                        {{ form.email(class="form-control", placeholder="Email", value=customer.email) }}
+                    </div>
+                    <div class="col-3">
+                        {{ form.number.label(class="form-label newuser-formlab-label") }}
+                        {{ form.number(class="form-control", placeholder="number", value=customer.number) }}
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-end">
+                    <div class="col-12">
+                        {{ form.save(class="btn-lab-dark me-md-2", type="submit") }}
+                        <a class="btn-lab btn-lab-red-dark me-md-2" type="button" href="{{ url_for('costumers') }}">Close</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

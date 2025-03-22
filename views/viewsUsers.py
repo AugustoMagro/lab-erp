@@ -1,6 +1,6 @@
 from main import app, db
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from helpers import NewUserForm, EditUserForm, LoginUserForm
+from helpers.helpers import NewUserForm, EditUserForm, LoginUserForm
 from model import *
 from flask_bcrypt import generate_password_hash, check_password_hash
 
@@ -103,7 +103,7 @@ def deleteUser(id):
     if user.email in USERS_DEFAULT:
         flash(f"You can´t delete Admin")
     else:
-        user.delete()
+        db.session.delete(user)
 
     db.session.commit()
 

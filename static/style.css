@@ -1,3 +1,20 @@
+
+[data-theme-stanum] {
+    --lab-erp-pallet-color-1: #212529;
+    --lab-erp-pallet-color-2: #343A40;
+    --lab-erp-pallet-color-3: #495057;
+    --lab-erp-pallet-color-4: #6C757D;
+    --lab-erp-pallet-color-5: #ADB5BD;
+    --lab-erp-pallet-color-6: #CED4DA;
+    --lab-erp-pallet-color-7: #DEE2E6;
+    --lab-erp-pallet-color-8: #E9ECEF;
+    --lab-erp-pallet-color-9: #F8F9FA;
+    --lab-erp-pallet-color-10: #FFFFFF;
+    --lab-erp-pallet-color-red: #DC4A34;
+    --lab-erp-pallet-color-green: #2AAA65;
+}
+
+
 .lab-erp-pallet-bg-1 {
     background-color: #212529;
 }
@@ -133,6 +150,27 @@ li {
     background-color: #212529;
     color: #DC4A34;
     transition: 100ms ease-in-out;
+}
+
+.btn-table {
+    background-color: #CED4DA;
+    color: #212529;
+    border: 0px;
+}
+
+.btn-table:hover {
+    background-color: #343A40;
+    color: #FFFFFF;
+}
+
+.btn-table-red {
+    background-color: #DC4A34;
+    border: 0px;
+}
+
+.btn-table-red:hover {
+    background-color: #953021;
+    color: #FFFFFF;
 }
 
 .newuser-formlab-label {
