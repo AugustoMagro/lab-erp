@@ -3,10 +3,15 @@
 {% block content %}
 <div class="mt-5 p-5 container lab-erp-pallet-bg-10 rounded">
     <div class="row">
+        <div class="mb-5 row">
+            <div class="col-1">
+                <h3>Users</h3>
+            </div>
+        </div>
         <div class="mb-5 row align-items-end">
             <div class="col-md-4">
                 <div class="">
-                    <input id="search-users" type="search" class="form-control" placeholder="Search" onkeyup="searchUsers()">
+                    <input id="search-table" type="search" class="form-control" placeholder="Search" onkeyup="searchTableGeneric()">
                 </div>
             </div>
             <div class="col-md-6"></div>
@@ -28,7 +33,7 @@
                         <th scope="col">Position</th>
                         </tr>
                     </thead>
-                    <tbody id="table-users" class="table-group-divider">
+                    <tbody id="table" class="table-group-divider">
                         {% for user in users %}
                         <tr>
                             <th scope="row">{{ user.id }}</th>
@@ -37,8 +42,8 @@
                             <td>{{ user.email }}</td>
                             <td>{{ user.position }}</td>
                             <td>
-                                <a href="{{ url_for('editUser', id=user.id) }}">Edit</a>
-                                <a href="{{ url_for('deleteUser', id=user.id) }}">Delete</a>
+                                <a class="btn-lab btn-table" href="{{ url_for('editUser', id=user.id) }}">Edit</a>
+                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteUser', id=user.id) }}">Delete</a>
                             </td>
                         </tr>
                         {% endfor %}

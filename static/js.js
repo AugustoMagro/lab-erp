@@ -1,10 +1,10 @@
 
-function searchUsers() {
+function searchTableGeneric() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("search-users");
+  input = document.getElementById("search-table");
   filter = input.value.toUpperCase();
-  table = document.getElementById("table-users");
+  table = document.getElementById("table");
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query

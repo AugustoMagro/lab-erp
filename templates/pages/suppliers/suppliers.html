@@ -1,11 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<h1>Suppliers</h1>
-
-<div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div class="mt-5 p-5 container lab-erp-pallet-bg-10 rounded">
+    <div class="row">
+        <div class="mb-5 row">
+            <div class="col-1">
+                <h3>Suppliers</h3>
+            </div>
+        </div>
+        <div class="mb-5 row align-items-end">
+            <div class="col-md-4">
+                <div class="">
+                    <input id="search-table" type="search" class="form-control" placeholder="Search" onkeyup="searchTableGeneric()">
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+            <div class="col-md-2">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn-lab me-md-2 w-100" type="button" href="{{ url_for('newSupplier') }}">New</a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-top">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table" class="table-group-divider">
+                        {% for supplier in suppliers %}
+                        <tr>
+                            <th scope="row">{{ supplier.id }}</th>
+                            <td>{{ supplier.name }}</td>
+                            <td>{{ supplier.lastName }}</td>
+                            <td>{{ supplier.email }}</td>
+                            <td>{{ supplier.number }}</td>
+                            <td>
+                                <a class="btn-lab btn-table" href="{{ url_for('editSupplier', id=supplier.id) }}">Edit</a>
+                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteSupplier', id=supplier.id) }}">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
