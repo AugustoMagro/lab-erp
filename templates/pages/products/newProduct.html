@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="mt-5 p-5 container lab-erp-pallet-bg-1 rounded">
+    <div class="row">
+        <form action="{{ url_for('createProduct') }}" method="post">
+            <fieldset>
+                {{ form.csrf_token() }}
+                <div class="mb-5 row align-items-end">
+                    <div class="col-2">
+                        {{ form.barcode.label(class="form-label newuser-formlab-label") }}
+                        {{ form.barcode(class="form-control", placeholder="Barcode") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.ncm.label(class="form-label newuser-formlab-label") }}
+                        {{ form.ncm(class="form-control", placeholder="NCM") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.name.label(class="form-label newuser-formlab-label") }}
+                        {{ form.name(class="form-control", placeholder="Name") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.description.label(class="form-label newuser-formlab-label") }}
+                        {{ form.description(class="form-control", placeholder="Description") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.supplier.label(class="form-label newuser-formlab-label") }}
+                        {{ form.supplier(class="form-control", placeholder="Supplier") }}
+                    </div>
+                    <div class="col-1">
+                        {{ form.categoryPdv.label(class="form-label newuser-formlab-label") }}
+                        {{ form.categoryPdv(class="form-control", placeholder="Category PDV") }}
+                    </div>
+                    <div class="col-1">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn-lab-dark me-md-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            New
+                        </button>
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-end">
+                    <div class="col-1">
+                        {{ form.inventoryAmount.label(class="form-label newuser-formlab-label") }}
+                        {{ form.inventoryAmount(class="form-control", placeholder="Inventory Amount") }}
+                    </div>
+                    <div class="col-1">
+                        {{ form.volume.label(class="form-label newuser-formlab-label") }}
+                        {{ form.volume(class="form-control", placeholder="Volume") }}
+                    </div>
+                    <div class="col-1">
+                        {{ form.weight.label(class="form-label newuser-formlab-label") }}
+                        {{ form.weight(class="form-control", placeholder="Weight") }}
+                    </div>
+                    <div class="col-1">
+                        {{ form.unit.label(class="form-label newuser-formlab-label") }}
+                        {{ form.unit(class="form-control", placeholder="Unit") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.costBase.label(class="form-label newuser-formlab-label") }}
+                        {{ form.costBase(class="form-control", placeholder="Base cost") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.costTransport.label(class="form-label newuser-formlab-label") }}
+                        {{ form.costTransport(class="form-control", placeholder="Transport cost") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.costFinal.label(class="form-label newuser-formlab-label") }}
+                        {{ form.costFinal(class="form-control", placeholder="Final cost") }}
+                    </div>
+                    <div class="col-2">
+                        {{ form.costPrice.label(class="form-label newuser-formlab-label") }}
+                        {{ form.costPrice(class="form-control", placeholder="Price cost") }}
+                    </div>
+                </div>
+                <div class="mb-5 row align-items-end">
+                    <div class="col-12">
+                        {{ form.save(class="btn-lab-dark me-md-2", type="submit") }}
+                        <a class="btn-lab btn-lab-red-dark me-md-2" type="button" href="{{ url_for('products') }}">Close</a>
+                    </div>
+                    
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+    
+    <div class="modal-content">
+    <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">new category PDV</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <form action="{{ url_for('createCategoryPdv') }}" method="post">
+            <fieldset>
+                {{ formCategory.csrf_token() }}
+                <div class="mb-5 row align-items-end">
+                    <div class="col-4">
+                        {{ formCategory.name.label(class="form-label newuser-formlab-label") }}
+                        {{ formCategory.name(class="form-control", placeholder="Name") }}
+                    </div>
+                    {{ formCategory.save(class="btn btn-primary", type="submit") }}
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- {{ formCategory.save(class="btn btn-primary", type="submit") }} -->
+    </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

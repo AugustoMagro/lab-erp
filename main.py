@@ -32,6 +32,7 @@ from views.views import *
 from views.viewsUsers import *
 from views.viewsCustomers import *
 from views.viewsSuppliers import *
+from views.viewsProducts import *
 from model import *
 
 # Commit your model (table) to the database

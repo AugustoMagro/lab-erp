@@ -19,14 +19,6 @@ def dashboard():
     
     return render_template('pages/dashboard/dashboard.html')
 
-@app.route('/products')
-def products():
-    if 'userLoged' not in session or session['userLoged'] == None:
-        flash(f"User not loged!")
-        return redirect(url_for("login", next=url_for('products')))
-
-    return render_template('pages/products/products.html')
-
 @app.route('/sales')
 def sales():
     if 'userLoged' not in session or session['userLoged'] == None:
