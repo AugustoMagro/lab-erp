@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, validators, EmailField, SelectField, SubmitField, IntegerField, DateField
 
+POSITIONS = ["", "Analyst", "Sales", "Manager"]
+
 class NewUserForm(FlaskForm):
     name = StringField('Name', [validators.DataRequired(), validators.Length(min=1, max=50)])
     lastName = StringField('Last name', [validators.DataRequired(), validators.Length(min=1, max=50)])
@@ -14,7 +16,7 @@ class EditUserForm(FlaskForm):
     name = StringField('Name', [validators.DataRequired(), validators.Length(min=1, max=50)])
     lastName = StringField('Last name', [validators.DataRequired(), validators.Length(min=1, max=50)])
     email = EmailField('E-mail', [validators.DataRequired(), validators.Email()])
-    position = SelectField('Position', [validators.DataRequired()], choices=["", "Analyst", "Sales", "Manager"])
+    position = SelectField('Position', [validators.DataRequired()], choices=POSITIONS)
     save = SubmitField('Save')
 
 class LoginUserForm(FlaskForm):
