@@ -20,3 +20,7 @@ function searchTableGeneric() {
     }
   }
 }
+
+function confirmLinkClick() {
+  return confirm("Are you sure you want to delete?");
+}

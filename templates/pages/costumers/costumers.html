@@ -44,10 +44,8 @@
                             <td>{{ customer.email }}</td>
                             <td>{{ customer.number }}</td>
                             <td>{{ customer.birthdayDate }}</td>
-                            <td>
-                                <a class="btn-lab btn-table" href="{{ url_for('editCustomer', id=customer.id) }}">Edit</a>
-                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteCustomer', id=customer.id) }}">Delete</a>
-                            </td>
+                            <td><a class="btn-lab btn-table" href="{{ url_for('editCustomer', id=customer.id) }}">Edit</a></td>
+                            <td><a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteCustomer', id=customer.id) }}">Delete</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>

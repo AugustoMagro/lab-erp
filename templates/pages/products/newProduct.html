@@ -85,35 +85,54 @@
     </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog">
-    
-    <div class="modal-content">
-    <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">new category PDV</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        <form action="{{ url_for('createCategoryPdv') }}" method="post">
-            <fieldset>
+<form action="{{ url_for('createCategoryPdv') }}" method="post">
+    <fieldset>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">new category PDV</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
                 {{ formCategory.csrf_token() }}
-                <div class="mb-5 row align-items-end">
+                <div class="mb-5 row align-items-top">
                     <div class="col-4">
                         {{ formCategory.name.label(class="form-label newuser-formlab-label") }}
                         {{ formCategory.name(class="form-control", placeholder="Name") }}
                     </div>
-                    {{ formCategory.save(class="btn btn-primary", type="submit") }}
-            </fieldset>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- {{ formCategory.save(class="btn btn-primary", type="submit") }} -->
-    </div>
-    </div>
-</div>
-</div>
+                    <div class="col-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Category PDV</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table" class="table-group-divider">
+                                {% for category in listCategory %}
+                                <tr>
+                                    <th scope="row">{{ category.id }}</th>
+                                    <td>{{ category.name }}</td>
+                                    <td>
+                                        <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteCategory', id=category.id) }}">Delete</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                {{ formCategory.save(class="btn-lab me-md-2", type="submit") }}
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </fieldset>
+</form>
 
 {% endblock %}

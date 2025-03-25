@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="mt-5 p-5 container lab-erp-pallet-bg-10 rounded">
+<div class="mt-5 p-5 container-fluid lab-erp-pallet-bg-10 rounded">
     <div class="row">
         <div class="mb-5 row">
             <div class="col-1">
@@ -62,8 +62,10 @@
                             <td>{{ product.costFinal }}</td>
                             <td>{{ product.costPrice }}</td>
                             <td>
-                                <a class="btn-lab btn-table" href="{{ url_for('editProduct', id=product.id) }}">Edit</a>
-                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteProduct', id=product.id) }}">Delete</a>
+                                <a class="btn-lab btn-table" href="{{ url_for('editProduct', id=product.id) }}">Edit</a> 
+                            </td>
+                            <td>
+                                <a class="btn-lab btn-lab-red btn-table-red" onclick="return confirmLinkClick()" href="{{ url_for('deleteProduct', id=product.id) }}">Delete</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -73,6 +75,13 @@
         </div>
     </div>
 </div>
+
+<!-- Button trigger modal -->
+
+  
+
+  
+  
 
   
 {% endblock %}

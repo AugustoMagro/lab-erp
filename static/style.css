@@ -45,6 +45,9 @@
 .lab-erp-pallet-bg-10 {
     background-color: #FFFFFF;
 }
+.text-lab-color-10 {
+    color: #FFFFFF;
+}
 .lab-erp-pallet-bg-red {
     background-color: #DC4A34;
 }
@@ -179,4 +182,14 @@ li {
 
 .login-text {
     color: #FFFFFF;
+}
+
+.text-label-format {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.text-label-format-title {
+    font-size: xx-large;
+    font-weight: 600;
 }

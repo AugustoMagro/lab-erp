@@ -41,10 +41,8 @@
                             <td>{{ supplier.lastName }}</td>
                             <td>{{ supplier.email }}</td>
                             <td>{{ supplier.number }}</td>
-                            <td>
-                                <a class="btn-lab btn-table" href="{{ url_for('editSupplier', id=supplier.id) }}">Edit</a>
-                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteSupplier', id=supplier.id) }}">Delete</a>
-                            </td>
+                            <td><a class="btn-lab btn-table" href="{{ url_for('editSupplier', id=supplier.id) }}">Edit</a></td>
+                            <td><a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteSupplier', id=supplier.id) }}">Delete</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
