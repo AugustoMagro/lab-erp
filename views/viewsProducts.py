@@ -23,8 +23,9 @@ def newProduct():
     formCategory = NewCategoryPdv()
     form.supplier.choices = [(s.id, s.name) for s in Supplier.query.order_by(Supplier.id)]
     form.categoryPdv.choices = [(c.id, c.name) for c in CategoryPdv.query.order_by(CategoryPdv.id)]
+    listCategory = CategoryPdv.query.order_by(CategoryPdv.id)
 
-    return render_template('pages/products/newProduct.html', form=form, formCategory=formCategory)
+    return render_template('pages/products/newProduct.html', form=form, formCategory=formCategory, listCategory=listCategory)
 
 @app.route('/editproduct/<int:id>')
 def editProduct(id):
@@ -107,3 +108,15 @@ def deleteProduct(id):
     db.session.commit()
 
     return redirect(url_for("products"))
+
+@app.route('/deletecategory/<int:id>')
+def deleteCategory(id):
+    if 'userLoged' not in session or session['userLoged'] == None:
+        flash(f"User not loged!")
+        return redirect(url_for("login", next=url_for('deleteCategory')))
+
+    categoryPdv = CategoryPdv.query.filter_by(id=id).first()
+    db.session.delete(categoryPdv)
+    db.session.commit()
+
+    return redirect(url_for("newProduct"))

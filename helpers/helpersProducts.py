@@ -45,4 +45,4 @@ class EditProductForm(FlaskForm):
 
 class NewCategoryPdv(FlaskForm):
     name = StringField('Name', [validators.DataRequired()])
-    save = SubmitField('Save')
+    save = SubmitField('Add category')

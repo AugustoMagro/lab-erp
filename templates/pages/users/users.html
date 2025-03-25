@@ -44,10 +44,8 @@
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.email }}</td>
                             <td>{{ user.position }}</td>
-                            <td>
-                                <a class="btn-lab btn-table" href="{{ url_for('editUser', id=user.id) }}">Edit</a>
-                                <a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteUser', id=user.id) }}">Delete</a>
-                            </td>
+                            <td><a class="btn-lab btn-table" href="{{ url_for('editUser', id=user.id) }}">Edit</a></td>
+                            <td><a class="btn-lab btn-lab-red btn-table-red" href="{{ url_for('deleteUser', id=user.id) }}">Delete</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>

@@ -2,10 +2,81 @@
 
 {% block content %}
 
-<h1>Sales</h1>
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-4 lab-erp-pallet-bg-9">
+            <div class="mt-3 row lab-erp-pallet-bg-3 rounded">
+                <div class="p-5 text-start text-label-format-title text-lab-color-10">
+                    <img class="me-3 rounded float-start" src="{{ url_for('static', filename='icon/sales_light.png') }}" width="35" height="35"></img>
+                    <h5 class="text-label-format-title">Sales</h5>
+                </div>
+                <form action="{{ url_for('searchProduct') }}" method="post">
+                    <fieldset>
+                        {{ form.csrf_token() }}
+                        <div class="mb-5 row align-items-end">
+                            <div class="col-12 text-start">
+                                {{ form.barcode.label(class="ms-3 text-label-format form-label newuser-formlab-label") }}
+                                {{ form.barcode(class="form-control", placeholder="Barcode") }}
+                            </div>
+                        </div>
+                        <div class="mb-5 row align-items-end">
+                            <div class="col-12 text-start">
+                                {{ form.name.label(class="ms-3 text-label-format form-label newuser-formlab-label") }}
+                                {{ form.name(class="form-control", placeholder="Name") }}
+                            </div>
+                        </div>
+                        <div class="mb-5 row align-items-end">
+                            <div class="col-12">
+                                {{ form.search(class="btn-lab-dark me-md-2", type="submit") }}
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="mt-3 row lab-erp-pallet-bg-4 rounded">
+                <div class="p-5 text-start text-label-format-title text-lab-color-10">
+                    <img class="me-3 rounded float-start" src="{{ url_for('static', filename='icon/customers_light.png') }}" width="35" height="35"></img>
+                    <h5 class="text-label-format-title">Customers</h5>
+                </div>
+                <div class="container">
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                        <option selected></option>
+                        {% for customer in listCustomers %}
+                        <option>{{ customer.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="mt-3 row lab-erp-pallet-bg-4 rounded">
 
-<div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+                <div class="container">
+                    <table class="mt-5 table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Barcode</th>
+                            <th scope="col">NCM</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table" class="table-group-divider">
+                            {% for product in products %}
+                            <tr>
+                                <th scope="row">{{ product.id }}</th>
+                                <td>{{ product.barcode }}</td>
+                                <td>{{ product.ncm }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-8 lab-erp-pallet-bg-8">
+            col
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
