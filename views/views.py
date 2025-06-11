@@ -1,4 +1,4 @@
-from main import app, db
+from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, session, flash, abort
 from model import *
 from flask_bcrypt import generate_password_hash, check_password_hash

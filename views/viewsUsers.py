@@ -1,4 +1,4 @@
-from main import app, db
+from app import app, db
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from helpers.helpers import NewUserForm, EditUserForm, LoginUserForm
 from model import *

@@ -1,4 +1,4 @@
-from main import db
+from app import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -38,15 +38,6 @@ class Product(db.Model):
     ncm = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(150), nullable=True)
-    supplier = db.Column(db.Integer, db.ForeignKey('supplier.id'))
-    categoryPdv = db.Column(db.String(100), nullable=False)
-    inventoryAmount = db.Column(db.Integer, nullable=False)
-    volume = db.Column(db.Integer, nullable=False)
-    weight = db.Column(db.Double, nullable=False)
-    unit = db.Column(db.Integer, nullable=False)
-    costBase = db.Column(db.Double, nullable=False)
-    costTransport = db.Column(db.Double, nullable=False)
-    costFinal = db.Column(db.Double, nullable=False)
     costPrice = db.Column(db.Double, nullable=False)
     
     def __repr__(self):
@@ -54,7 +45,6 @@ class Product(db.Model):
     
 class Sale(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    idProduct = db.Column(db.Integer, db.ForeignKey('product.id'))
     idCostumer = db.Column(db.Integer, nullable=True)
     discount = db.Column(db.Double, nullable=False)
     salePrice = db.Column(db.Double, nullable=False)

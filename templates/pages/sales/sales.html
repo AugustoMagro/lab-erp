@@ -4,7 +4,7 @@
 
 <div class="container-fluid text-center">
     <div class="row">
-        <div class="col-4 lab-erp-pallet-bg-9">
+        <div class="col-6 lab-erp-pallet-bg-9">
             <div class="mt-3 row lab-erp-pallet-bg-3 rounded">
                 <div class="p-5 text-start text-label-format-title text-lab-color-10">
                     <img class="me-3 rounded float-start" src="{{ url_for('static', filename='icon/sales_light.png') }}" width="35" height="35"></img>
@@ -55,7 +55,8 @@
                             <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Barcode</th>
-                            <th scope="col">NCM</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Adicionar</th>
                             </tr>
                         </thead>
                         <tbody id="table" class="table-group-divider">
@@ -63,7 +64,10 @@
                             <tr>
                                 <th scope="row">{{ product.id }}</th>
                                 <td>{{ product.barcode }}</td>
-                                <td>{{ product.ncm }}</td>
+                                <td>{{ product.name }}</td>
+                                <td>
+                                    <a class="btn-lab btn-table" href="{{ url_for('addSale', id=product.id) }}">Add</a> 
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -72,8 +76,42 @@
 
             </div>
         </div>
-        <div class="col-8 lab-erp-pallet-bg-8">
-            col
+        <div class="col-6">
+            <div class="container">
+                <table class="mt-5 table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remover</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table" class="table-group-divider">
+                        {% for itemSale in listSales %}
+                        <tr>
+                            <th scope="row">{{ itemSale.id }}</th>
+                            <td>{{ itemSale.barcode }}</td>
+                            <td>{{ itemSale.name }}</td>
+                            <td>{{ itemSale.price }}</td>
+                            <td>
+                                <a class="btn-lab btn-table btn-table-red" href="{{ url_for('removeSale', id=itemSale.id) }}">Remove</a> 
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="me-3 text-label-format-title text-start">Total</h5>
+                    </div>
+                    <div class="col-6">
+                        <h5 class="me-3 text-label-format-title text-end">{{ total }}</h5>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

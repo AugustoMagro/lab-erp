@@ -31,15 +31,6 @@
                         <th scope="col">NCM</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Supplier</th>
-                        <th scope="col">Category PDV</th>
-                        <th scope="col">Inventory Amount</th>
-                        <th scope="col">Volume</th>
-                        <th scope="col">Weight</th>
-                        <th scope="col">Unit</th>
-                        <th scope="col">Base cost</th>
-                        <th scope="col">Transport cost</th>
-                        <th scope="col">Final cost</th>
                         <th scope="col">Price</th>
                         </tr>
                     </thead>
@@ -52,14 +43,6 @@
                             <td>{{ product.name }}</td>
                             <td>{{ product.description }}</td>
                             <td>{{ product.supplier }}</td>
-                            <td>{{ product.categoryPdv }}</td>
-                            <td>{{ product.inventoryAmount }}</td>
-                            <td>{{ product.volume }}</td>
-                            <td>{{ product.weight }}</td>
-                            <td>{{ product.unit }}</td>
-                            <td>{{ product.costBase }}</td>
-                            <td>{{ product.costTransport }}</td>
-                            <td>{{ product.costFinal }}</td>
                             <td>{{ product.costPrice }}</td>
                             <td>
                                 <a class="btn-lab btn-table" href="{{ url_for('editProduct', id=product.id) }}">Edit</a> 
