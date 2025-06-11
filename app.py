@@ -19,7 +19,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 # app.config['AWS_SECRET_ACCESS_KEY'] = os.getenv("AWS_SECRET_ACCESS_KEY")
 # app.config['ACL'] = os.getenv("ACL")
 
-# s3 = FlaskS3(app)
+# s3 = FlaskS3(app) 
 
 db = SQLAlchemy(app)
 
