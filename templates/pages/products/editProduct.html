@@ -25,6 +25,10 @@
                         {{ form.name(class="form-control", placeholder="Name", value=product.name) }}
                     </div>
                     <div class="col-2">
+                        {{ form.storage.label(class="form-label newuser-formlab-label") }}
+                        {{ form.storage(class="form-control", placeholder="Storage", value=product.storage) }}
+                    </div>
+                    <div class="col-2">
                         {{ form.description.label(class="form-label newuser-formlab-label") }}
                         {{ form.description(class="form-control", placeholder="Description", value=product.description) }}
                     </div>

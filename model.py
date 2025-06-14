@@ -34,9 +34,10 @@ class Supplier(db.Model):
     
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    barcode = db.Column(db.Integer, nullable=False)
+    barcode = db.Column(db.String(100), nullable=False)
     ncm = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(100), nullable=False)
+    storage = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(150), nullable=True)
     costPrice = db.Column(db.Double, nullable=False)
     
