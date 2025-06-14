@@ -20,12 +20,9 @@ def newProduct():
         return redirect(url_for("login", next=url_for('newProduct')))
 
     form = NewProductForm()
-    formCategory = NewCategoryPdv()
-    form.supplier.choices = [(s.id, s.name) for s in Supplier.query.order_by(Supplier.id)]
-    form.categoryPdv.choices = [(c.id, c.name) for c in CategoryPdv.query.order_by(CategoryPdv.id)]
     listCategory = CategoryPdv.query.order_by(CategoryPdv.id)
 
-    return render_template('pages/products/newProduct.html', form=form, formCategory=formCategory, listCategory=listCategory)
+    return render_template('pages/products/newProduct.html', form=form)
 
 @app.route('/editproduct/<int:id>')
 def editProduct(id):
@@ -49,6 +46,7 @@ def updateProduct():
     product.barcode = form.barcode.data
     product.ncm = form.ncm.data
     product.name = form.name.data
+    product.storage = form.storage.data
     product.description = form.description.data
     product.costPrice = form.costPrice.data
 
@@ -66,7 +64,8 @@ def createProduct():
     form = NewProductForm(request.form)
     newProduct = Product(barcode=form.barcode.data, 
                         ncm=form.ncm.data, 
-                        name=form.name.data, 
+                        name=form.name.data,
+                        storage=form.storage.data,
                         description=form.description.data, 
                         costPrice=form.costPrice.data)
 

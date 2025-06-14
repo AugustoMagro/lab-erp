@@ -181,6 +181,10 @@ li {
     color:#FFFFFF;
 }
 
+.add-formlab-label {
+    display:none;
+}
+
 .login-text {
     color: #FFFFFF;
 }

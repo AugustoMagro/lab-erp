@@ -30,6 +30,7 @@
                         <th scope="col">Barcode</th>
                         <th scope="col">NCM</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Storage</th>
                         <th scope="col">Description</th>
                         <th scope="col">Price</th>
                         </tr>
@@ -41,8 +42,8 @@
                             <td>{{ product.barcode }}</td>
                             <td>{{ product.ncm }}</td>
                             <td>{{ product.name }}</td>
+                            <td>{{ product.storage }}</td>
                             <td>{{ product.description }}</td>
-                            <td>{{ product.supplier }}</td>
                             <td>{{ product.costPrice }}</td>
                             <td>
                                 <a class="btn-lab btn-table" href="{{ url_for('editProduct', id=product.id) }}">Edit</a> 
